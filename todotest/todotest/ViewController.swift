@@ -15,11 +15,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     //入力する
     @IBOutlet weak var inputtext: UITextField!
     
+    @IBOutlet weak var time: UILabel!
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var HistoryButton: UIBarButtonItem!
     @IBOutlet weak var SettingButton: UIBarButtonItem!
-    //入力の隣のチェックボックス
-     var myButton: UIButton!
+    @IBOutlet weak var myButton: UIButton!
+    
     
     //カウント回数の記憶
     let userDefaults = UserDefaults.standard
@@ -39,19 +40,20 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         super.viewDidLoad()
         
      
-        let myButton = UIButton()
-        myButton.backgroundColor = UIColor.blue // 背景色
-        myButton.addTarget(self, action: #selector(ViewController.onClickMyButton(sender:)), for: .touchUpInside)
-        // タイトルを設定する(通常時).
-        myButton.setTitle("ボタン(通常)", for: .normal)
-        myButton.setTitleColor(UIColor.white, for: .normal)
-        
-        // タイトルを設定する(ボタンがハイライトされた時).
-        myButton.setTitle("ボタン(押された時)", for: .highlighted)
-        myButton.setTitleColor(UIColor.black, for: .highlighted)
-        
-
-
+//        let myButton = UIButton()
+//        myButton.backgroundColor = UIColor.blue // 背景色
+//        myButton.addTarget(self, action: #selector(ViewController.onClickMyButton(sender:)), for: .touchUpInside)
+//        // タイトルを設定する(通常時).
+//        myButton.setTitle("ボタン(通常)", for: .normal)
+//        myButton.setTitleColor(UIColor.white, for: .normal)
+//
+//        // タイトルを設定する(ボタンがハイライトされた時).
+//        myButton.setTitle("ボタン(押された時)", for: .highlighted)
+//        myButton.setTitleColor(UIColor.black, for: .highlighted)
+      //  myButton.layer.borderColor = UIColor.black.cgColor // 枠線の色
+      //  myButton.layer.borderWidth = 10
+        myButton.layer.borderWidth = 1.0 // 枠線の幅
+        myButton.layer.borderColor = UIColor.black.cgColor // 枠線の色
         
         tableview.dataSource = self    //追加
         tableview.delegate = self // 追加
@@ -316,6 +318,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         // Realmに保存されているTodo型のobjectsを取得。
         let todo = todoCollection[indexPath.row]
        cell.textLabel?.text = todo.koumoku
+      
+    
     // tableView.setEditing(true, animated: true)
     cell.imageView?.image = UIImage(named: "check.jpg")
 //        let label = UILabel()
@@ -331,13 +335,22 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 //       addToAboveButton.backgroundColor = UIColor.red
 //        cell.accessoryView?.addSubview(addToAboveButton)
         
-        if(todo.date != ""){
-            //print("aaa")
-            cell.detailTextLabel?.text=todo.date
+        if((userDefaults.bool(forKey: "term")) == true){
+            time.text="通知日"
+            if(todo.date != ""){
+                //print("aaa")
+                cell.detailTextLabel?.text=todo.date
+            }else{
+                cell.detailTextLabel?.text=""
+            }
+            
+            //データの同期
+           // userDefaults.synchronize()
         }else{
+            time.text=""
             cell.detailTextLabel?.text=""
         }
-        
+       
         return cell
         
     }

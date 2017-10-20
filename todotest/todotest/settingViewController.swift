@@ -17,8 +17,6 @@ let section2=["リストに通知日を表示"]
 class settingViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet var colorselect: colorselect!
-    @IBOutlet weak var color: UILabel!
      let userDefaults = UserDefaults.standard
     let mySwicth: UISwitch = UISwitch()
 
@@ -145,11 +143,9 @@ class settingViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         if(indexPath==[0,0]){
            
-            colorselect.backgroundColor=UIColor.white
-            colorselect.center = self.view.center
-            colorselect.layer.cornerRadius = 8.0
-            colorselect.isHidden = false
-            self.view.addSubview(colorselect)
+           
+        performSegue(withIdentifier: "colorselect", sender: nil)
+    
 
         }
         
@@ -171,13 +167,7 @@ class settingViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
    
    
-     
-    @IBAction func TapColor(_ sender: UIButton) {
-       
-      color.backgroundColor=sender.backgroundColor
-        colorselect.isHidden = true
-      }
-    
+  
     
   
     /*

@@ -23,7 +23,7 @@
 		2BBBE3CE47EF9F47862B24BD /* Pods_todotestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3A477F0DF0CD55D0A0EA4E2 /* Pods_todotestUITests.framework */; };
 		5FFD60471A1BCE7336A43030 /* Pods_todotestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C388D4EFEEEFCAE28F3F6E0 /* Pods_todotestTests.framework */; };
 		A41DE8FE1F5F7F84008FE83F /* settingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41DE8FD1F5F7F84008FE83F /* settingViewController.swift */; };
-		A42E2F451F6253E2006F9CBB /* colorselect.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42E2F441F6253E2006F9CBB /* colorselect.swift */; };
+		A421CBD81F93AA3B00AE862A /* colorselectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A421CBD71F93AA3B00AE862A /* colorselectViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +69,7 @@
 		9787E4D33A9D6D14364E7061 /* Pods-todotest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-todotest.release.xcconfig"; path = "Pods/Target Support Files/Pods-todotest/Pods-todotest.release.xcconfig"; sourceTree = "<group>"; };
 		A3A477F0DF0CD55D0A0EA4E2 /* Pods_todotestUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_todotestUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A41DE8FD1F5F7F84008FE83F /* settingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingViewController.swift; sourceTree = "<group>"; };
-		A42E2F441F6253E2006F9CBB /* colorselect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = colorselect.swift; sourceTree = "<group>"; };
+		A421CBD71F93AA3B00AE862A /* colorselectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colorselectViewController.swift; sourceTree = "<group>"; };
 		AF00424EDB3D584D13BA547C /* Pods-todotestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-todotestTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-todotestTests/Pods-todotestTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BF526A75FC1473C6A7C41E31 /* Pods-todotestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-todotestTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-todotestTests/Pods-todotestTests.release.xcconfig"; sourceTree = "<group>"; };
 		F09DC038ED1BF50D444FA98F /* Pods_todotest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_todotest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,7 +140,7 @@
 				076B94E71F58FFD9001250E1 /* LaunchScreen.storyboard */,
 				076B94EA1F58FFD9001250E1 /* Info.plist */,
 				A41DE8FD1F5F7F84008FE83F /* settingViewController.swift */,
-				A42E2F441F6253E2006F9CBB /* colorselect.swift */,
+				A421CBD71F93AA3B00AE862A /* colorselectViewController.swift */,
 			);
 			path = todotest;
 			sourceTree = "<group>";
@@ -491,7 +491,7 @@
 				0743B4C71F5900A400563543 /* editViewController.swift in Sources */,
 				076B94DF1F58FFD9001250E1 /* AppDelegate.swift in Sources */,
 				0743B4CC1F5900AD00563543 /* todolist.swift in Sources */,
-				A42E2F451F6253E2006F9CBB /* colorselect.swift in Sources */,
+				A421CBD81F93AA3B00AE862A /* colorselectViewController.swift in Sources */,
 				0743B4C81F5900A400563543 /* HistoryViewController.swift in Sources */,
 				A41DE8FE1F5F7F84008FE83F /* settingViewController.swift in Sources */,
 			);
