@@ -20,26 +20,15 @@ class settingViewController: UIViewController,UITableViewDelegate,UITableViewDat
      let userDefaults = UserDefaults.standard
     let mySwicth: UISwitch = UISwitch()
 
-    @IBOutlet weak var uibar: UINavigationBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        settingColor()
+        
         tableView.dataSource = self
         tableView.delegate = self
         navigationController?.navigationBar.barTintColor = UIColor.red
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        print("settingcoor")
-        UINavigationBar.appearance()
-    }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        print("settingcoorviewWillAppear")
-        UINavigationBar.appearance()
-    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -78,7 +67,7 @@ class settingViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Cellの内容を決める
+        // Cellの内容を決める（超重要）
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "setcell", for: indexPath)
         switch indexPath.section {
@@ -123,11 +112,6 @@ class settingViewController: UIViewController,UITableViewDelegate,UITableViewDat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         print(indexPath)
-        
-        //色の選択画面に移動する
-        if(indexPath==[0,0]){
-            performSegue(withIdentifier: "colorselect", sender: nil)
-        }
         //データを全削除する
         if(indexPath == [1,0] ){
             
@@ -156,10 +140,10 @@ class settingViewController: UIViewController,UITableViewDelegate,UITableViewDat
             })
            
         }
-        
-        
-        
-        
+        //色の選択画面に移動する
+        if(indexPath==[0,0]){
+        performSegue(withIdentifier: "colorselect", sender: nil)
+        }
         //選択し終わったら色を解除
          tableView.deselectRow(at: indexPath, animated: true)
         
@@ -176,28 +160,6 @@ class settingViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 userDefaults.removeObject(forKey: "count")
                 print(userDefaults.integer(forKey: "count"))
                 userDefaults.removeObject(forKey: "term")
-    }
-    
-    func settingColor(){
-        let userDefaults = UserDefaults.standard
-        if(userDefaults.integer(forKey: "color") == 0){
-            uibar.barTintColor = UIColor.black
-        }
-        if(userDefaults.integer(forKey: "color") == 1){
-            uibar.barTintColor = UIColor.red
-        }
-        if(userDefaults.integer(forKey: "color") == 2){
-            uibar.barTintColor = UIColor.orange
-        }
-        if(userDefaults.integer(forKey: "color") == 3){
-            uibar.barTintColor = UIColor.yellow
-        }
-        if(userDefaults.integer(forKey: "color") == 4){
-            uibar.barTintColor = UIColor.green
-        }
-        if(userDefaults.integer(forKey: "color") == 5){
-            uibar.barTintColor = UIColor.blue
-        }
     }
     /*
      // MARK: - Navigation

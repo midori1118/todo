@@ -12,7 +12,6 @@ import RealmSwift
 class HistoryViewController: UIViewController,UITableViewDelegate , UITableViewDataSource  {
     
     
-    @IBOutlet weak var uibar: UINavigationBar!
     @IBOutlet weak var histableview: UITableView!
     
     
@@ -21,7 +20,6 @@ class HistoryViewController: UIViewController,UITableViewDelegate , UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        settingColor()
         histableview.dataSource = self    //追加
         histableview.delegate = self // 追加
         
@@ -127,27 +125,6 @@ class HistoryViewController: UIViewController,UITableViewDelegate , UITableViewD
         
     }
     
-    func settingColor(){
-        let userDefaults = UserDefaults.standard
-        if(userDefaults.integer(forKey: "color") == 0){
-            uibar.barTintColor = UIColor.black
-        }
-        if(userDefaults.integer(forKey: "color") == 1){
-            uibar.barTintColor = UIColor.red
-        }
-        if(userDefaults.integer(forKey: "color") == 2){
-            uibar.barTintColor = UIColor.orange
-        }
-        if(userDefaults.integer(forKey: "color") == 3){
-            uibar.barTintColor = UIColor.yellow
-        }
-        if(userDefaults.integer(forKey: "color") == 4){
-            uibar.barTintColor = UIColor.green
-        }
-        if(userDefaults.integer(forKey: "color") == 5){
-            uibar.barTintColor = UIColor.blue
-        }
-    }
     
     /*
      // MARK: - Navigation

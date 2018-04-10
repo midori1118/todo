@@ -48,5 +48,3 @@ class History: Object{
    // dynamic var CompleteDay:Date?
 }
 
-
-

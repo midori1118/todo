@@ -39,7 +39,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        settingColor()
+       
 
         myButton.layer.borderWidth = 1.0 // 枠線の幅
         myButton.layer.borderColor = UIColor.black.cgColor // 枠線の色
@@ -362,25 +362,5 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     
-    func settingColor(){
-        let userDefaults = UserDefaults.standard
-        if(userDefaults.integer(forKey: "color") == 0){
-            uibar.barTintColor = UIColor.black
-        }
-        if(userDefaults.integer(forKey: "color") == 1){
-            uibar.barTintColor = UIColor.red
-        }
-        if(userDefaults.integer(forKey: "color") == 2){
-            uibar.barTintColor = UIColor.orange
-        }
-        if(userDefaults.integer(forKey: "color") == 3){
-            uibar.barTintColor = UIColor.yellow
-        }
-        if(userDefaults.integer(forKey: "color") == 4){
-            uibar.barTintColor = UIColor.green
-        }
-        if(userDefaults.integer(forKey: "color") == 5){
-            uibar.barTintColor = UIColor.blue
-        }
-    }
+   
 }

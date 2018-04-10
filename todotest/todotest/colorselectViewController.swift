@@ -7,12 +7,10 @@
 //
 
 import UIKit
-import RealmSwift
 
 class colorselectViewController: UIViewController {
 
-     let userDefaults = UserDefaults.standard
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
       
@@ -40,26 +38,13 @@ class colorselectViewController: UIViewController {
     @IBAction func selectcolor(_ sender: Any) {
         // UINavigationBar.appearance().barTintColor=(sender as AnyObject).backgroundColor
          //self.navigationController?.navigationBar.barTintColor=(sender as AnyObject).backgroundColor
-        let button:UIButton = sender as! UIButton
-        print(button.tag)
         
-        userDefaults.set(button.tag, forKey: "color")
+        UINavigationBar.appearance().barTintColor = (sender as AnyObject).backgroundColor
         
-        userDefaults.synchronize()
+         performSegue(withIdentifier: "reset", sender: nil)
         
-      //  print((sender as AnyObject).tag)
-       UINavigationBar.appearance().barTintColor = (sender as AnyObject).backgroundColor
-        viewWillDisappear(true)
-        dismiss(animated: true, completion: nil)
+      
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        UINavigationBar.appearance()
-    }
-   
-    
-}
 
     /*
     // MARK: - Navigation
@@ -69,4 +54,6 @@ class colorselectViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-*/
+    */
+
+}
