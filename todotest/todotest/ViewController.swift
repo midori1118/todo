@@ -12,6 +12,7 @@ import RealmSwift
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource  {
     
+    @IBOutlet weak var uibar: UINavigationBar!
     //入力する
     @IBOutlet weak var inputtext: UITextField!
     
@@ -38,26 +39,14 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-     
-//        let myButton = UIButton()
-//        myButton.backgroundColor = UIColor.blue // 背景色
-//        myButton.addTarget(self, action: #selector(ViewController.onClickMyButton(sender:)), for: .touchUpInside)
-//        // タイトルを設定する(通常時).
-//        myButton.setTitle("ボタン(通常)", for: .normal)
-//        myButton.setTitleColor(UIColor.white, for: .normal)
-//
-//        // タイトルを設定する(ボタンがハイライトされた時).
-//        myButton.setTitle("ボタン(押された時)", for: .highlighted)
-//        myButton.setTitleColor(UIColor.black, for: .highlighted)
-      //  myButton.layer.borderColor = UIColor.black.cgColor // 枠線の色
-      //  myButton.layer.borderWidth = 10
+        settingColor()
+
         myButton.layer.borderWidth = 1.0 // 枠線の幅
         myButton.layer.borderColor = UIColor.black.cgColor // 枠線の色
         
         tableview.dataSource = self    //追加
         tableview.delegate = self // 追加
-        // Do any additional setup after loading the view, typically from a nib.
+
        //メイン画面のtableviewを左端まで引く
         //self.tableview.separatorInset = UIEdgeInsets.zero
         
@@ -84,8 +73,17 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         inputtext.delegate=self as? UITextFieldDelegate
         
           }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("settingcoor")
+        UINavigationBar.appearance()
+    }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("settingcoorviewWillAppear")
+        UINavigationBar.appearance()
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -358,5 +356,31 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         print("onClickMyButton:");
      //   print("sender.currentTitle: \(sender.currentTitle)")
       //  print("sender.tag: \(sender.tag)")
+    }
+    @IBAction func sort(_ sender: Any) {
+        
+    }
+    
+    
+    func settingColor(){
+        let userDefaults = UserDefaults.standard
+        if(userDefaults.integer(forKey: "color") == 0){
+            uibar.barTintColor = UIColor.black
+        }
+        if(userDefaults.integer(forKey: "color") == 1){
+            uibar.barTintColor = UIColor.red
+        }
+        if(userDefaults.integer(forKey: "color") == 2){
+            uibar.barTintColor = UIColor.orange
+        }
+        if(userDefaults.integer(forKey: "color") == 3){
+            uibar.barTintColor = UIColor.yellow
+        }
+        if(userDefaults.integer(forKey: "color") == 4){
+            uibar.barTintColor = UIColor.green
+        }
+        if(userDefaults.integer(forKey: "color") == 5){
+            uibar.barTintColor = UIColor.blue
+        }
     }
 }

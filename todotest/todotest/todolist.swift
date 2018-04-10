@@ -10,21 +10,13 @@
 import Foundation
 import RealmSwift
 
-
-
 class Todo: Object{
     
     // 登録日時
     dynamic var created = Date()
     
-    //        // 登録年
-    //        dynamic var year = 0;
-    //
-            // 登録月
-          //  dynamic var month = 0;
-    //
-            // 登録日
-    dynamic var term:String="";
+    // 登録日
+    dynamic var term:String=""
     //日付の表示
     dynamic var date:String=""
     
@@ -32,6 +24,8 @@ class Todo: Object{
     // todoの項目
     dynamic var koumoku: String = ""
     
+    //色の付箋
+    dynamic var ColorRight:Int=0
     // メモ内容
     dynamic var memo: String=""
     
@@ -53,4 +47,6 @@ class History: Object{
     dynamic var KoumokuHistory: String=""
    // dynamic var CompleteDay:Date?
 }
+
+
 

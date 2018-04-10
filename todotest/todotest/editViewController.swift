@@ -10,6 +10,7 @@ import RealmSwift
 
 class editViewController: UIViewController{
     
+    @IBOutlet weak var uibar: UINavigationBar!
     @IBOutlet weak var memo: UITextView!
     @IBOutlet weak var colorlabel: UILabel!
     @IBOutlet weak var day: UILabel!
@@ -26,8 +27,21 @@ class editViewController: UIViewController{
    // @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var timeField: UITextField!
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("settingcoor")
+        UINavigationBar.appearance()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("settingcoorviewWillAppear")
+        UINavigationBar.appearance()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        settingColor()
         print("移動した値:",self.delegate.id)
       
          let data = realm.object(ofType: Todo.self, forPrimaryKey: self.delegate.id as AnyObject)
@@ -93,9 +107,9 @@ class editViewController: UIViewController{
         
     }
     
-    /*
-     DatePickerが選ばれた際に呼ばれる.
-     */
+    
+     //DatePickerが選ばれた際に呼ばれる.
+ 
     internal func onDidChangeDate(sender: UIDatePicker){
         
         
@@ -129,11 +143,11 @@ class editViewController: UIViewController{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    //メイン画面に推移
     @IBAction func ReturnMain(_ sender: Any) {
         performSegue(withIdentifier: "toMain",sender: nil)
     }
-    
+    //項目の書き換え
     @IBAction func koumoku(_ sender: UITextField) {
         let data = realm.object(ofType: Todo.self, forPrimaryKey: self.delegate.id as AnyObject)
         let history=History()
@@ -146,15 +160,35 @@ class editViewController: UIViewController{
         }
 
     }
-    
+    //メモの保存
     @IBAction func memoStorage(_ sender: Any) {
         let data = realm.object(ofType: Todo.self, forPrimaryKey: self.delegate.id as AnyObject)
-        
-        
         try! realm.write {
             data?.memo = memo.text!
         }
 
+    }
+    
+    func settingColor(){
+        let userDefaults = UserDefaults.standard
+        if(userDefaults.integer(forKey: "color") == 0){
+            uibar.barTintColor = UIColor.black
+        }
+        if(userDefaults.integer(forKey: "color") == 1){
+            uibar.barTintColor = UIColor.red
+        }
+        if(userDefaults.integer(forKey: "color") == 2){
+            uibar.barTintColor = UIColor.orange
+        }
+        if(userDefaults.integer(forKey: "color") == 3){
+            uibar.barTintColor = UIColor.yellow
+        }
+        if(userDefaults.integer(forKey: "color") == 4){
+            uibar.barTintColor = UIColor.green
+        }
+        if(userDefaults.integer(forKey: "color") == 5){
+            uibar.barTintColor = UIColor.blue
+        }
     }
     /*
      // MARK: - Navigation
